@@ -16,7 +16,7 @@ laranja = "#FFAB40"
 # - Criar a janela e suas config. básicas
 janela = Tk()
 janela.title("CalculadoraGui")
-janela.geometry("245x318")
+janela.geometry("245x310")
 janela.config( bg = preto)
 
 # VIZOR ONDE APARECE RESULTADO
@@ -28,13 +28,27 @@ frame_tela.grid(row = 0, column = 0)
 frame_corpo = Frame(janela, width = 245 , height = 268)
 frame_corpo.grid(row = 1, column = 0) 
 
+# Função
+def calcular():
+    resultado = eval("9/9")
+    # passando valor para a tela
+    valor_texto.set(resultado) # Colocando o resultado da operação
 
+
+# - Criando label
+valor_texto = StringVar()
+
+app_label = Label(frame_tela, textvariable= valor_texto, width=16, height=2, padx=8, relief=FLAT,
+anchor="e", justify=RIGHT,font=("Ivy 18 "), bg=azul, fg=branca) # -» O textvariable permite ser modificado dinamicamente.
+# Logo nos permite colocar valores e mudalos
+
+app_label.place(x=0, y=0)
 
 # ---------------- Botões
 clean = Button(frame_corpo, text = "C", width = 11, height = 2, bg = cinzento, font = ("Ivy 13 bold"),
 relief = RAISED, overrelief = RIDGE)
 
-clean.place(x = 0, y = 0) # x é a linha horizontal e y é a linha vertical
+clean.place(x = 2, y = 0) # x é a linha horizontal e y é a linha vertical
 
 # RESTO DA DIVISÃO %
 restoDaDivisão = Button(frame_corpo, text = "%", width = 5, height = 2, bg = cinzento, font = 
@@ -48,16 +62,85 @@ divisão = Button(frame_corpo, text = "/", width = 5, height = 2, bg = laranja, 
 
 divisão.place(x =186, y = 0)
 
-# ------------------- Botões numéricos :
+#MULTIPLICAÇÃO
+multiplicação = Button(frame_corpo, text = "*", width = 5, height=2, bg=laranja, fg=branca, font=
+("Ivy 13 bold"), relief=RAISED, overrelief=RIDGE)
+multiplicação.place(x=186, y=52)
+
+#SUBTRAÇÃO
+subtração = Button(frame_corpo, text = "-", width = 5, height=2, bg=laranja, fg=branca,font=
+("Ivy 13 bold"), relief=RAISED, overrelief=RIDGE)
+subtração.place(x=186, y=104)
+
+#ADIÇÃO
+adição = Button(frame_corpo, text="+", width=5, height=2, bg=laranja, fg=branca, font=("Ivy 13 bold")
+, relief=RAISED, overrelief=RIDGE)
+adição.place(x=186, y=156)
+
+# - IGUAL
+igual = Button(frame_corpo, text="=", width=5, height=2, bg=laranja, fg=branca, font=("Ivy 13 bold")
+, relief=RAISED, overrelief=RIDGE)
+igual.place(x=186, y=208)
+
+
+# ------------------- Botões numéricos ---------------------------------------------------------
+#Botão 1 -----------------------------------------------------------------------------------------
+
 b_1 = Button(frame_corpo, text=1, width = 5, height = 2, bg = cinzento, font =("Ivy 13 bold"),
 relief=RAISED, overrelief = RIDGE)
 
-b_1.place(x=0, y = 55)
+b_1.place(x=0, y = 52)
 
-# Botão 2
+#Botão 2 ----------------------------------------------------------------------------------------- 
 b_2 = Button(frame_corpo, text = 2, width = 5, height =2, bg=cinzento, font=("Ivy 13 bold"), relief=
 RAISED, overrelief = RIDGE)
 
-b_2.place(x=62, y=55)
+b_2.place(x=62, y=52)
+
+#Botão 3 -----------------------------------------------------------------------------------------
+b_3 = Button(frame_corpo, text=3, width=5, height=2, bg=cinzento, font=("Ivy 13 bold"), relief=
+RAISED, overrelief = RIDGE)
+
+b_3.place(x=124, y=52)
+
+#Botão 4 -----------------------------------------------------------------------------------------
+b_4 = Button(frame_corpo, text=4, width=5, height=2, bg=cinzento, font=("Ivy 13 bold"), relief=
+RAISED, overrelief=RIDGE)
+b_4.place(x=0, y=104)
+
+#Botão 5 -----------------------------------------------------------------------------------------
+b_5 = Button(frame_corpo, text=5, width=5, height=2, bg=cinzento, font=("Ivy 13 bold"), relief=
+RAISED, overrelief=RIDGE)
+b_5.place(x = 62, y = 104)
+
+#Botão 6 -----------------------------------------------------------------------------------------
+b_6 = Button(frame_corpo, text=6, width=5, height=2, bg=cinzento, font=("Ivy 13 bold"), relief=
+RAISED, overrelief = RIDGE)
+b_6.place(x=124, y=104)
+#Botão 7 -----------------------------------------------------------------------------------------
+b_7 = Button(frame_corpo, text=7, width=5, height=2, bg=cinzento, font=("Ivy 13 bold"), relief=
+RAISED, overrelief= RIDGE)
+b_7.place(x=0, y=156)
+#Botão 8 -----------------------------------------------------------------------------------------
+b_8 = Button(frame_corpo, text = 8, width = 5, height=2, bg=cinzento, font=("Ivy 13 bold"), relief=
+RAISED, overrelief = RIDGE)
+b_8.place(x= 62, y =156)
+
+#Botão 9 -----------------------------------------------------------------------------------------
+b_9 = Button(frame_corpo, text = 9, width=5, height=2, bg=cinzento, font=("Ivy 13 bold"), relief=
+RAISED, overrelief = RIDGE)
+b_9.place(x=124, y=156)
+
+# 0 ZERO ------------------------------------------------------------------------------------------
+b_zero = Button(frame_corpo, text=0, width=11, height=2, bg=cinzento, font=("Ivy 13 bold"), relief=
+RAISED, overrelief=RIDGE)
+b_zero.place(x=2, y=208)
+
+# ----- PONTO
+b_ponto = Button(frame_corpo, text = ".", width = 5, height=2, bg=cinzento, font=("Ivy 13 bold"),
+relief=RAISED, overrelief=RIDGE)
+b_ponto.place(x=124, y=208)
+
+calcular()
 # Roda a calculadora.
 janela.mainloop()
